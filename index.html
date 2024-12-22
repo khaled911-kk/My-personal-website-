@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <style>
+
+    /* Carousel Styles */
+    #art-gallery {
+      position: relative;
+      max-width: 600px;
+      margin: 20px auto;
+      overflow: hidden;
+      border: 2px solid #333;
+      border-radius: 10px;
+    }
+
+
+    .carousel {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .carousel-item {
+      min-width: 100%;
+      flex-shrink: 0;
+    }
+
+    .carousel-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    button.prev, button.next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      font-size: 20px;
+      border-radius: 50%;
+      z-index: 10;
+    }
+
+    button.prev {
+      left: 10px;
+    }
+
+    button.next {
+      right: 10px;
+    }
+
+    button.prev:hover, button.next:hover {
+      background: #007BFF;
+    }
+
+    /* Style for the typewriter text */
+    #typewriter {
+      font-size: 2em;
+      font-weight: bold;
+      color: #333;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    /* Skills Tab Styles */
+    .skills-tabs {
+      margin-top: 20px;
+    }
+
+    .tab-button {
+      padding: 10px 20px;
+      cursor: pointer;
+      background-color: #f0f0f0;
+      border: 1px solid #ddd;
+      margin: 0 5px;
+      font-size: 16px;
+    }
+
+    .tab-button.active {
+      background-color: #007BFF;
+      color: #fff;
+    }
+ .skills-category {
+      display: none;
+    }
+
+   
+    .skills-category.active {
+      display: block;
+    }
+
+    /* Contact Section Styling */
+    .social-links a {
+      margin-right: 10px;
+      font-size: 30px;
+      color: #333;
+    }
+
+    .social-links a:hover {
+      color: #007BFF;
+    }
+    
+    
+    
+    
+    
+
+  
+
+  </style>
+</head>
+<body>
+<div id="loader">
+  <div id="messages">
+    <h1>Welcome</h1>
+    <h1>Hello</h1>
+    <h1>السلام عليكم</h1>
+    <h1>歡迎</h1>
+  </div>
+</div>
+
+</div>
+  <!-- Header -->
+  <header>
+    <h1></h1>
+    <nav>
+      <a href="#hero">Home</a>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#hobbies">Hobbies</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero">
+    <h1 id="typewriter"></h1> <!-- مكان تأثير الكتابة -->
+    <p>Where you can better understand me, know my work, skills, and achievements, and view some of my artistic works.</p>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>I am Khaled, a student passionate about modern technology, mechatronics engineering, robotics, machine learning, and mathematics. I strive to explore innovative solutions using engineering and mathematics to improve daily life through smart systems. I have a strong passion for technological challenges that constantly drive me to learn new skills and develop myself. I believe in the power of knowledge and continuous learning, and I aim to be a part of the future of innovation in the fields of engineering and artificial intelligence. Through my studies and practical experiences, I strive to achieve academic and professional excellence.</p>
+  </section>
+
+
+<!-- Skills Section -->
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="skills-tabs">
+    <!-- Tab Buttons -->
+    <button class="tab-button active" onclick="showCategory('frontend')">Front End</button>
+    <button class="tab-button" onclick="showCategory('backend')">Back End</button>
+    <button class="tab-button" onclick="showCategory('tools')">Tools</button>
+  </div>
+
+  <!-- Front End Skills -->
+  <div id="frontend" class="skills-category active">
+    <div class="skill-card"><h3>HTML</h3><p>Structuring web pages</p></div>
+    <div class="skill-card"><h3>CSS</h3><p>Styling web pages</p></div>
+    <div class="skill-card"><h3>JavaScript</h3><p>Creating dynamic websites</p></div>
+
+  </div>
+
+  <!-- Back End Skills -->
+  <div id="backend" class="skills-category">
+    <div class="skill-card"><h3>Python</h3><p>Building powerful backend solutions</p></div>
+  </div>
+
+  <!-- Tools Skills -->
+  <div id="tools" class="skills-category">
+    <div class="skill-card"><h3>GitHub</h3><p>Version control and collaboration</p></div>
+    <div class="skill-card"><h3>Microsoft Word</h3><p>Documentation and formatting</p></div>
+    <div class="skill-card"><h3>Visual Studio Code</h3><p>Efficient code editing</p></div>
+  </div>
+</section>
+
+<!-- JavaScript to handle tab switching -->
+<script>
+  function showCategory(categoryName) {
+    // Hide all skill categories
+    const categories = document.querySelectorAll('.skills-category');
+    categories.forEach(cat => cat.classList.remove('active'));
+
+    // Remove active class from all buttons
+    const buttons = document.querySelectorAll('.tab-button');
+    buttons.forEach(button => button.classList.remove('active'));
+
+    // Show the selected category and add active class to the button
+    document.getElementById(categoryName).classList.add('active');
+    const activeButton = document.querySelector(`button[onclick="showCategory('${categoryName}')"]`);
+    activeButton.classList.add('active');
+  }
+</script>
+
+<section id="projects">
+  <h2>My Projects</h2>
+  <div class="projects-container">
+    <div class="project-card">
+      <h3>Project 1</h3>
+      <p>A simple calculator using HTML, CSS, and JavaScript.</p>
+      <a href="https://github.com/khaled911-kk/calculator" target="_blank">View Project</a>
+    </div>
+    <div class="project-card">
+      <h3>Project 2</h3>
+      <p>A practical project for a Python course involves writing a code that simulates temperature levels. If the temperature exceeds or falls below the specified limit, an alert is sent to the responsible person.</p>
+      <a href="https://github.com/khaled911-kk/Temperature-Monitoring-System.git" target="_blank">View Project</a>
+    </div>
+    <div class="project-card">
+      <h3>Project 3</h3>
+      <p>I was about to change my phone and needed to transfer the photos to the new one. However, there were photos I couldn't find in the gallery, and searching for them was time-consuming. So, I wrote a Python code collects all the photos from the phone and sends them in a compressed files via email</p>
+      <a href="https://github.com/khaled911-kk/EmailFileSender" target="_blank">View Project</a>
+    </div>
+  </div>
+</section>
+
+  <!-- Hobbies Section -->
+  <section id="hobbies">
+    <h2>Hobbies</h2>
+    <div class="hobby-card">
+      <h3>Chess</h3>
+      <p>Chess is my favorite pastime. Here are my ratings:</p>
+      <div class="chess-rating">
+        <div><h3>Rapid Rating</h3><p>1600</p></div>
+        <div><h3>Bullet Rating</h3><p>1350</p></div>
+      </div>
+    </div>
+    <div class="hobby-card">
+      <h3>Art</h3>
+      <p>Art is my creative outlet. Here’s a glimpse into my artwork:</p>
+    </div>
+  </section>
+  <section id="art-gallery" class="art-section">
+  <h2 class="section-title">My Artworks</h2>
+<div class="swiper-container">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide"><img src="art/art1.jpg" alt="Image 1"></div>
+    <div class="swiper-slide"><img src="art/art2.jpg" alt="Image 2"></div>
+    <div class="swiper-slide"><img src="art/art3.jpg" alt="Image 3"></div>
+       <div class="swiper-slide"><img src="art/art4.jpg" alt="Image 4"></div>
+     <div class="swiper-slide"><img src="art/art5.jpg" alt="Image 5"></div>
+  <div class="swiper-slide"><img src="art/art6.jpg" alt="Image 6"></div>
+    <div class="swiper-slide"><img src="art/art7.jpg" alt="Image 7"></div>
+  </div>
+  <!-- إضافة النقاط والملاحة -->
+  <div class="swiper-pagination"></div>
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+</div>
+    <!-- النقاط -->
+    <div class="swiper-pagination"></div>
+  </div>
+</section>
+
+  <!-- Experience Section -->
+  <section id="experience">
+    <h2>Experience</h2>
+    <div class="timeline">
+      <div class="entry">
+        <h3>Why Mechatronics?</h3>
+        <p>As I explained in my motivation letter, my love for machines and intelligent systems started long ago. I believe that technology and the technological revolution underway will propel humanity to places it never dreamed of, and I aspire to be a part of this movement, contributing to its progress and advancement.</p>
+         </div>
+    
+      <div class="entry">
+        <h3>What Have I Done to Study What I Love?</h3>
+        <p>
+At first, I wasn’t aware of self-learning platforms like Edraak and Coursera until recently. Before that, I relied primarily on YouTube as my main learning source. In programming, I followed channels such as "Abdelrahman Gamal" and "Elzero Web School," while in mathematics, I greatly benefited from the content of the channel "Ana Hr."
+
+In the field of technology in general, I couldn’t find quality Arabic content, so I didn’t follow anyone regularly. Later, I discovered the Edraak platform and began exploring courses there, such as a course on robotics and another on electrical circuits. Currently, I’m planning to start a course on Arduino, which is the next step in my educational journey toward achieving
+</p>
+      </div>
+        <div class="entry">
+        <h3>Why the Turkish Scholarship?</h3>
+        <p>The Turkish Scholarship, or Turkey in general, will be the perfect place for me to begin my journey. The scholarship will provide me with many essential things that will allow me to focus solely on my education, such as accommodation, a monthly stipend, and more. Additionally, Turkey is one of the leading countries in education, and on top of that, it is a predominantly Muslim country. With mosques everywhere, I will never be far from hearing the call to prayer, which I have grown accustomed to in my home country.</p>
+         </div>
+         <div class="entry">
+        <h3>How Will Turkey Benefit Me?</h3>
+        <p>Aside from the high-quality education I will receive, Turkey will play a key role in my story. For instance, the "Ajans Press" agency reported that the car ownership rate is one car for every 7 people, which is quite a good ratio. This presents a great opportunity for me. If I have the chance to travel to Turkey, I aspire to build strong relationships with people there, which will provide me with a chance to establish a business path in Turkey, should I be able to set up my own company in the future.</p>
+         </div>
+   
+    </div>
+  </section>
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <div class="social-links">
+      <a href="https://github.com/khaled911-kk"><i class="fab fa-github"></i></a>
+      <a href="https://wa.me/qr/OE5QG6S7LF3JI1"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <p>Email: khaledbadran911@gmail.com</p>
+    <p>Phone: +201207993312</p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© Created by Khaled. All rights reserved.</p>
+  </footer>
+
+  <!-- Link to the External JavaScript File -->
+  <script src="script.js"></script> <!-- ربط ملف الجافا سكربت هنا -->
+</body>
+</html>

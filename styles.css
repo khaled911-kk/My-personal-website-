@@ -1,0 +1,563 @@
+/* General Reset */
+
+* {
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #0d1117;
+    color: #c9d1d9;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+/* Header */
+header {
+    position: fixed;
+    width: 100%;
+    background: #161b22;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    z-index: 1000;
+    overflow-x: auto;
+}
+header nav {
+    display: flex;
+}
+header nav a {
+    margin: 0 15px;
+    font-size: 16px;
+    color: #8b949e;
+    transition: color 0.3s ease;
+    white-space: nowrap;
+}
+header nav a:hover {
+    color: #58a6ff;
+}
+/* Hero Section */
+#hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(135deg, #0d1117, #161b22);
+}
+#hero h1 {
+    font-size: 3rem;
+    color: #58a6ff;
+    margin-bottom: 20px;
+    overflow: hidden;
+    animation: typing 4s steps(30) forwards;
+}
+#hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    line-height: 1.8;
+    color: #8b949e;
+}
+/* Typing effect */
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+/* Add other styles here *
+/
+
+/* About Section */
+#about {
+  padding: 60px 20px;
+  background: #161b22;
+  text-align: center;
+}
+
+#about h2 {
+  color: #58a6ff;
+  margin-bottom: 20px;
+  font-size: 2.5rem;
+}
+
+#about p {
+  max-width: 700px;
+  margin: auto;
+  line-height: 1.8;
+  color: #8b949e;
+}
+
+/* Experience Section */
+#experience {
+  padding: 60px 20px;
+  background: #0d1117;
+}
+
+#experience h2 {
+  text-align: center;
+  color: #58a6ff;
+  margin-bottom: 20px;
+}
+
+.timeline {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  border-left: 2px solid #58a6ff;
+  position: relative;
+}
+
+.timeline .entry {
+  margin-bottom: 20px;
+  position: relative;
+  padding-left: 20px;
+}
+
+.timeline .entry::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background: #58a6ff;
+  position: absolute;
+  left: -6px;
+  top: 5px;
+  border-radius: 50%;
+}
+
+.timeline h3 {
+  color: #c9d1d9;
+  margin-bottom: 5px;
+}
+
+.timeline p {
+  color: #8b949e;
+}
+/* Skills Section */
+#skills {
+  padding: 60px 20px;
+  background: #161b22;
+  text-align: center;
+}
+
+#skills h2 {
+  color: #58a6ff;
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+}
+
+/* Tabs for Skill Categories */
+.skills-tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  gap: 10px;
+}
+
+.tab-button {
+  background: linear-gradient(135deg, #21262d, #161b22);
+  color: #c9d1d9;
+  border: 1px solid #21262d;
+  padding: 12px 25px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
+}
+
+.tab-button:hover {
+  background: #58a6ff;
+  color: #fff;
+  border-color: #58a6ff;
+  transform: scale(1.1);
+}
+
+.tab-button.active {
+  background: #58a6ff;
+  color: #fff;
+  border-color: #58a6ff;
+  box-shadow: 0px 4px 10px rgba(88, 166, 255, 0.3);
+}
+
+/* Skills Container */
+.skills-category {
+  max-width: 100%; /* يضمن أن عرض القسم لا يتجاوز الصفحة */
+  padding: 20px; /* للتحكم في المسافات الداخلية */
+  gap: 20px; /* لتحديد المسافة بين العناصر */
+}
+
+.skills-category.active {
+  display: grid;
+}
+
+/* Skill Card Design */
+.skill-card {
+  background: #0d1117;
+  border: 2px solid #21262d;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+
+.skill-card:hover {
+  transform: translateY(-10px);
+  border-color: #58a6ff;
+  box-shadow: 0px 5px 15px rgba(88, 166, 255, 0.3);
+}
+
+.skill-card img {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 10px;
+  border-radius: 50%;
+  background: #21262d;
+  padding: 10px;
+}
+
+.skill-card h3 {
+  color: #c9d1d9;
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+}
+
+.skill-card p {
+  color: #8b949e;
+  font-size: 0.9rem;
+}
+
+/* Projects Section */
+#projects {
+  padding: 60px 20px;
+  background: #0d1117;
+  text-align: center;
+}
+
+#projects h2 {
+  color: #58a6ff;
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+}
+
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 0 20px;
+}
+
+.project-card {
+  background: #161b22;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 15px auto;
+  transition: transform 0.3s, border-color 0.3s;
+  border: 1px solid transparent;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.project-card:hover {
+  transform: scale(1.05);
+  border-color: #58a6ff;
+}
+
+.project-card h3 {
+  color: #c9d1d9;
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+
+.project-card p {
+  color: #8b949e;
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+.project-card a {
+  color: #58a6ff;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.project-card a:hover {
+  color: #1f6feb;
+}
+/* Hobbies Section */
+#hobbies {
+  padding: 60px 20px;
+  background: #161b22;
+  text-align: center;
+}
+
+#hobbies h2 {
+  color: #58a6ff;
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+}
+
+.hobby-card {
+  background: #0d1117;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 15px;
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+/* Contact Section */
+#contact {
+  padding: 50px 20px;
+  background: #161b22;
+  text-align: center;
+}
+
+#contact h2 {
+  color: #58a6ff;
+  margin-bottom: 20px;
+}
+
+.social-links a {
+  color: #8b949e;
+  font-size: 30px;
+  margin: 10px;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.social-links a:hover {
+  transform: scale(1.2);
+  color: #58a6ff;
+}
+
+/* Footer */
+footer {
+  background: #161b22;
+  padding: 20px;
+  text-align: center;
+  color: #8b949e;
+}
+/* شاشة التحميل */
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #0d1117;
+  color: #58a6ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 1;
+  transition: opacity 1s ease, visibility 1s ease;
+}
+
+#loader.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* الرسائل */
+#messages {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+#messages h1 {
+  opacity: 0;
+  position: absolute;
+  animation: fadeMessage 0.5s linear forwards;
+}
+
+#messages h1:nth-child(1) {
+  animation-delay: 0s;
+}
+
+#messages h1:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+#messages h1:nth-child(3) {
+  animation-delay: 1s;
+}
+
+#messages h1:nth-child(4) {
+  animation-delay: 1.5s;
+}
+
+/* أنيميشن الرسائل */
+@keyframes fadeMessage {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+.art-section {
+  padding: 50px 20px;
+  background-color: #101010;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.swiper-container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.swiper-slide img {
+  width: 100%; /* ضبط عرض الصور */
+  height: auto;
+  object-fit: cover; /* لضمان تناسب الصور */
+}
+.swiper-slide:hover {
+  transform: scale(1.05);
+}
+
+/* أزرار السلايدر */
+.swiper-button-next, .swiper-button-prev {
+  color: #00ff00; /* لون الأزرار */
+}
+
+.swiper-pagination-bullet {
+  background: #00ff00; /* لون النقاط */
+}
+.hidden {
+  opacity: 0;
+  transform: translateY(50px); /* أو translateX حسب الاتجاه */
+  transition: all 0.5s ease-in-out;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hidden {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
+
+
+/* Media Queries for responsive design */
+/* للهواتف المحمولة */
+@media (max-width: 767px) {
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  .tab-button {
+    font-size: 12px;
+  }
+
+  #hero {
+    padding: 20px;
+  }
+
+  #about h2 {
+    font-size: 2rem;
+  }
+
+  .project-card {
+    margin: 10px;
+  }
+}
+
+/* للأجهزة اللوحية */
+@media (min-width: 768px) and (max-width: 1024px) {
+  header h1 {
+    font-size: 2rem;
+  }
+
+  .tab-button {
+    font-size: 14px;
+  }
+
+  #hero {
+    padding: 40px;
+  }
+
+  #about h2 {
+    font-size: 2.2rem;
+  }
+
+  .project-card {
+    margin: 15px;
+  }
+}
+
+/* لأجهزة الكمبيوتر */
+@media (min-width: 1025px) {
+  header h1 {
+    font-size: 2.5rem;
+  }
+
+  .tab-button {
+    font-size: 16px;
+  }
+
+  #hero {
+    padding: 60px;
+  }
+
+  #about h2 {
+    font-size: 2.5rem;
+  }
+
+  .project-card {
+    margin: 20px;
+  }
+  
+  
+  
+  
+  .skills-category, .project-card {
+  max-width: 100%; /* يضمن عدم تجاوز العرض */
+  overflow-x: hidden; /* يمنع ظهور الشريط الأفقي */
+}
