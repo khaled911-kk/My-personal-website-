@@ -10,6 +10,56 @@
   <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+      <!-- ربط مكتبات Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/11.1.0/firebase-database.js" defer></script>
+    
+    <!-- الكود الذي أرسلته مع defer لتأجيل تحميله -->
+    <script type="module" defer>
+      // استيراد الوظائف التي تحتاجها
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-analytics.js";
+      import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-database.js"; // إضافة Firebase Database
+
+      // تهيئة Firebase باستخدام الكود الذي حصلت عليه من Firebase Console
+      const firebaseConfig = {
+        apiKey: "AIzaSyAN2t8KEkbh01pqoNb7rAAF7g8eUVccDAk",
+        authDomain: "maowk3.firebaseapp.com",
+        databaseURL: "https://maowk3-default-rtdb.firebaseio.com",  // تأكد من صحة رابط قاعدة البيانات
+        projectId: "maowk3",
+        storageBucket: "maowk3.firebasestorage.app",
+        messagingSenderId: "34402525166",
+        appId: "1:34402525166:web:1a8812939dd031949b38ff",
+        measurementId: "G-HD2HCRMZ5V"
+      };
+
+      // تهيئة Firebase
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+      const database = getDatabase(app); // تهيئة قاعدة البيانات
+
+      // الحصول على IP الزائر وتخزين البيانات في Firebase
+      fetch('https://ipinfo.io/json?token=1aeefaf0d08ac6') // هنا تم استبدال YOUR_TOKEN بالتوكن الخاص بك
+        .then(response => response.json())
+        .then(data => {
+          let startTime = Date.now();
+          
+          // حساب المدة التي قضيتها في الصفحة
+          window.addEventListener('beforeunload', function() {
+            let endTime = Date.now();
+            let timeSpent = (endTime - startTime) / 1000; // المدة بالثواني
+            
+            // إرسال البيانات إلى Firebase
+            push(ref(database, 'visitors'), {
+              ip: data.ip,
+              timeSpent: timeSpent,
+              visitDate: new Date().toLocaleString()
+            });
+          });
+        });
+    </script>
+
+  
   <style>
 
     /* Carousel Styles */
