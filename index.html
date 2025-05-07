@@ -38,25 +38,6 @@
       const analytics = getAnalytics(app);
       const database = getDatabase(app); // تهيئة قاعدة البيانات
 
-      // الحصول على IP الزائر وتخزين البيانات في Firebase
-      fetch('https://ipinfo.io/json?token=1aeefaf0d08ac6') // هنا تم استبدال YOUR_TOKEN بالتوكن الخاص بك
-        .then(response => response.json())
-        .then(data => {
-          let startTime = Date.now();
-          
-          // حساب المدة التي قضيتها في الصفحة
-          window.addEventListener('beforeunload', function() {
-            let endTime = Date.now();
-            let timeSpent = (endTime - startTime) / 1000; // المدة بالثواني
-            
-            // إرسال البيانات إلى Firebase
-            push(ref(database, 'visitors'), {
-              ip: data.ip,
-              timeSpent: timeSpent,
-              visitDate: new Date().toLocaleString()
-            });
-          });
-        });
     </script>
 
   
@@ -189,7 +170,6 @@
     <nav>
       <a href="#hero">Home</a>
       <a href="#about">About</a>
-      <a href="#experience">Experience</a>
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
       <a href="#hobbies">Hobbies</a>
